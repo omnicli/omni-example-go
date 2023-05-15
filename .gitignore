@@ -1,0 +1,5 @@
+# This will be managed by 'omni up'
+.go-version
+
+# We will build the binary locally with 'omni up'
+cmd/compiledhello

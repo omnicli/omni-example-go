@@ -1,0 +1,20 @@
+up:
+  - go
+  - custom:
+      name: "Compile hello binary"
+      met?: |
+        [ -f cmd/compiledhello ] && \
+          [ -x cmd/compiledhello ] && \
+          [ cmd/compiledhello -nt src/hello.go ]
+      meet: "go build -o cmd/compiledhello src/hello.go"
+      unmeet: "rm cmd/compiledhello"
+
+path:
+  append:
+    - cmd
+
+commands:
+  localhello:
+    category: Omni Go Example
+    desc: Runs hello command from local config
+    run: go run src/hello.go
